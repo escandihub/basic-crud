@@ -14,7 +14,5 @@ class Party extends Model
         'number_guests',
         'date'
     ];
-
-    protected $primaryKey = 'party_id';
     use HasFactory;
 }

@@ -10,6 +10,5 @@ class Things extends Model
     protected $fillable = [
         'name', 'amount',
     ];
-    protected $primaryKey = 'thing_id';
     use HasFactory;
 }
