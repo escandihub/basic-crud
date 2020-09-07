@@ -15,6 +15,9 @@ class FriendController extends Controller
     public function index()
     {
         //
+        return response()->json([
+            'friends'=>Friend::all()
+        ]);
     }
 
     /**
@@ -24,7 +27,7 @@ class FriendController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -35,7 +38,11 @@ class FriendController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $friend = Friend::create($request->all());
+        return response()->json([
+            'message'=>'created',
+            'friend'=> $friend
+        ]);
     }
 
     /**
@@ -46,7 +53,7 @@ class FriendController extends Controller
      */
     public function show(Friend $friend)
     {
-        //
+        return response()->json(['friend'=> $friend]);
     }
 
     /**
