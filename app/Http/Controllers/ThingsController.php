@@ -39,8 +39,8 @@ class ThingsController extends Controller
     public function store(Request $request)
     {
         Things::create([
-            'name' => $request('name'),
-            'amount' => $request('cantidad')
+            'name' => $request->input('name'),
+            'amount' => $request->input('cantidad')
         ]);
 
         //some validation here
@@ -81,7 +81,7 @@ class ThingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Things::where('id', $id)->update(['name' => $request('name'), 'amount' => $request('amount')]);
+        Things::where('id', $id)->update(['name' => $request->input('name'), 'amount' => $request->input('amount')]);
 
         // some validation here
         return response()->json([
