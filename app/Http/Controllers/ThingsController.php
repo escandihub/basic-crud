@@ -15,10 +15,8 @@ class ThingsController extends Controller
      */
     public function index()
     {
-        $all_parties = Things::all();
-
         return response()->json([
-            'data' => $all_parties
+            'data' =>  Things::all()
         ]);
     }
 

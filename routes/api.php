@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\FriendController;
+use App\Http\Controllers\ThingsController;
+use App\Http\Controllers\PartyController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,5 +21,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::apiResource('friends', FriendController::class);
-
-// Route::get('cosa', 'ThingsController@index');
+Route::apiResource('things', ThingsController::class);
+Route::apiResource('party', PartyController::class);
