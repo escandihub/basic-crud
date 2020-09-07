@@ -15,4 +15,8 @@ class Party extends Model
         'date'
     ];
     use HasFactory;
+    public function friends()
+    {
+        return $this->hasMany('App\Models\Friend');
+    }
 }
