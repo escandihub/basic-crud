@@ -7,5 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Things extends Model
 {
+    protected $fillable = [
+        'name', 'amount',
+    ];
     use HasFactory;
 }
