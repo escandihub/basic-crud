@@ -14,7 +14,7 @@ class CreatePartiesTable extends Migration
     public function up()
     {
         Schema::create('parties', function (Blueprint $table) {
-            $table->id('party_id');
+            $table->id();
             $table->String('name');
             $table->String('objective');
             $table->String('location');

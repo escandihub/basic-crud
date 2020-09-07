@@ -14,7 +14,7 @@ class CreateThingsTable extends Migration
     public function up()
     {
         Schema::create('things', function (Blueprint $table) {
-            $table->id('thing_id');
+            $table->id();
             $table->String('name');
             $table->integer('amount');
             $table->timestamps();

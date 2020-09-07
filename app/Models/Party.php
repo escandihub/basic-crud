@@ -13,7 +13,5 @@ class Party extends Model
         'location',
         'number_guests'
     ];
-    
-    protected $primaryKey = 'party_id';
     use HasFactory;
 }

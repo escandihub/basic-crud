@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Things;
+
 class ThingsController extends Controller
 {
     /**
@@ -13,7 +15,11 @@ class ThingsController extends Controller
      */
     public function index()
     {
-        //
+        $all_parties = Things::all();
+
+        return response()->json([
+            'data' => $all_parties
+        ]);
     }
 
     /**
