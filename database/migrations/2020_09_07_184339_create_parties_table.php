@@ -14,7 +14,11 @@ class CreatePartiesTable extends Migration
     public function up()
     {
         Schema::create('parties', function (Blueprint $table) {
-            $table->id();
+            $table->id('party_id');
+            $table->String('name');
+            $table->String('objective');
+            $table->String('location');
+            $table->integer('number_guests');
             $table->timestamps();
         });
     }
