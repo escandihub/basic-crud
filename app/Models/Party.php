@@ -11,9 +11,10 @@ class Party extends Model
         'name',
         'objective',
         'location',
-        'number_guests'
+        'number_guests',
+        'date'
     ];
-    
+
     protected $primaryKey = 'party_id';
     use HasFactory;
 }
