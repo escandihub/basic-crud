@@ -76,7 +76,11 @@ class FriendController extends Controller
      */
     public function update(Request $request, Friend $friend)
     {
-        //
+        $friend->update($request->all());
+        return response()->json([
+            'message'=>'updated',
+            'friend'=> $friend
+        ]);
     }
 
     /**
@@ -87,6 +91,9 @@ class FriendController extends Controller
      */
     public function destroy(Friend $friend)
     {
-        //
+        $friend->delete();
+        return response()->json([
+            'message'=>'deleted'
+        ]);
     }
 }
