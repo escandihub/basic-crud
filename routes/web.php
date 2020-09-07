@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('friends', 'FriendController@index');
 Route::get('/', function () {
     return view('welcome');
 });
