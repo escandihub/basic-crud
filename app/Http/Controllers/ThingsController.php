@@ -27,7 +27,7 @@ class ThingsController extends Controller
      */
     public function create()
     {
-        //
+        //retunt a view 
     }
 
     /**
@@ -38,7 +38,14 @@ class ThingsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Things::create([
+            'name' => $request('name'),
+            'amount' => $request('cantidad')
+        ]);
+
+        //some validation here
+
+        return response()->json(['message' => "Se guardo, Correctamente"]);
     }
 
     /**
@@ -49,7 +56,9 @@ class ThingsController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json([
+            'data' => Things::find($id)
+        ]);
     }
 
     /**
@@ -72,7 +81,12 @@ class ThingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Things::where('id', $id)->update(['name' => $request('name'), 'amount' => $request('amount')]);
+
+        // some validation here
+        return response()->json([
+            'message' => "evento actualizado"
+        ]);
     }
 
     /**
