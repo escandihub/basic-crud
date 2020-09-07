@@ -15,10 +15,17 @@ class CreatePartiesTable extends Migration
     {
         Schema::create('parties', function (Blueprint $table) {
             $table->id();
+<<<<<<< HEAD
             $table->String('name');
             $table->String('objective');
             $table->String('location');
+=======
+            $table->string('name');
+            $table->string('objective');
+            $table->string('location');
+>>>>>>> ccfd7fef0114de6eb5f8c5e92f6d130eb861af04
             $table->integer('number_guests');
+            $table->integer('date');
             $table->timestamps();
         });
     }
