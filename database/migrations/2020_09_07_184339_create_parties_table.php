@@ -21,6 +21,7 @@ class CreatePartiesTable extends Migration
             $table->integer('number_guests');
             $table->integer('date');
             $table->timestamps();
+            $table->timestamps('deleted_at');
         });
     }
 

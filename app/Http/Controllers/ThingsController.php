@@ -56,6 +56,7 @@ class ThingsController extends Controller
      */
     public function show($id)
     {
+        // particular 
         return response()->json([
             'data' => Things::find($id)
         ]);
@@ -81,11 +82,11 @@ class ThingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        Things::where('id', $id)->update(['name' => $request->input('name'), 'amount' => $request->input('amount')]);
+        Things::where('id', $id)->update(['name' => $request->input('name'), 'amount' => $request->input('cantidad')]);
 
         // some validation here
         return response()->json([
-            'message' => "evento actualizado"
+            'message' => "se actualizado"
         ]);
     }
 

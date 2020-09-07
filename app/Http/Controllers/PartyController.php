@@ -14,7 +14,9 @@ class PartyController extends Controller
      */
     public function index()
     {
-        //
+        return response()->json([
+            'data' =>  Party::all()
+        ]);
     }
 
     /**
@@ -24,7 +26,7 @@ class PartyController extends Controller
      */
     public function create()
     {
-        //
+        
     }
 
     /**
@@ -35,7 +37,17 @@ class PartyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Party::create([
+            'name' => $request->input('name'),
+            'objective' => $request->input('objetivo'),
+            'location' => $request->input('lugar'),
+            'number_guests' => $request->input('num_invitados'),
+            'date' => $request->input('fecha_programada'),
+        ]);
+
+        //some validation here
+
+        return response()->json(['message' => "Se guardo, Correctamente"]);
     }
 
     /**
@@ -69,7 +81,15 @@ class PartyController extends Controller
      */
     public function update(Request $request, Party $party)
     {
-        //
+
+        Party::where('id', $id)->update([
+            'name' => $request->input('name'),
+            'objective' => $request->input('cantidad')]);
+
+        // some validation here
+        return response()->json([
+            'message' => "evento actualizado"
+        ]);
     }
 
     /**
@@ -80,6 +100,11 @@ class PartyController extends Controller
      */
     public function destroy(Party $party)
     {
-        //
+
+        Party::withTrashed()->where('id', $party->id)->get();
+
+        return response()->json([
+            'message' => "evento se elimino"
+        ]);
     }
 }
