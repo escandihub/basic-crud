@@ -50,7 +50,29 @@
                 </ul>
             </div>
         </nav>
-
-        @yield('content')
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Mood</th>
+                        <th>Invite</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (\App\Models\Friend::all() as $friend)
+                    <tr>
+                        <td scope="row">{{$friend->name}}</td>
+                        <td>{{$friend->email}}</td>
+                        <td>{{$friend->phone}}</td>
+                        <td>{{$friend->mood}}</td>
+                        <td><button type="button" class="btn btn-primary">Invitar</button></td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     </body>
 </html>

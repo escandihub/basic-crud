@@ -23,7 +23,10 @@ class FriendFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=>'dany',
+            'phone'=>9611515222,
+            'email'=>'dany@host.com',
+            'mood'=>'sad'
         ];
     }
 }

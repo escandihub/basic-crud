@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Friend;
+use Database\Factories\FriendFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -13,6 +15,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
+        $this->call([
+            FriendSeeder::class,
+        ]);
     }
 }
