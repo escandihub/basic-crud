@@ -21,4 +21,8 @@ class Party extends Model
     {
         return $this->hasMany('App\Models\Friend');
     }
+   public function things()
+   {
+       return $this->hasMany('App\Models\Things', 'foreign_key', 'local_key');
+   }
 }

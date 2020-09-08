@@ -86,7 +86,7 @@ class ThingsController extends Controller
 
         // some validation here
         return response()->json([
-            'message' => "se actualizado"
+            'message' => "se actualizo"
         ]);
     }
 
