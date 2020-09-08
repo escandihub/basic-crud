@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Friend;
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Illuminate\Support\Str;
+use Faker;
 
 class FriendFactory extends Factory
 {
@@ -22,10 +22,11 @@ class FriendFactory extends Factory
      */
     public function definition()
     {
+        $faker = Faker\Factory::create();
         return [
-            'name'=>'dany',
-            'phone'=>9611515222,
-            'email'=>'dany@host.com',
+            'name'=>$faker->name,
+            'phone'=>$faker->phoneNumber,
+            'email'=>$faker->email,
             'mood'=>'sad'
         ];
     }

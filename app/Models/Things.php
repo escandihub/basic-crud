@@ -11,9 +11,8 @@ class Things extends Model
         'name', 'amount',
     ];
     use HasFactory;
-
     public function belongToParty()
     {
-        return $this->belongsTo('App\Models\Party', 'foreign_key', 'other_key');
+        return $this->belongsTo('App\Models\Party');
     }
 }
