@@ -19,7 +19,7 @@ class CreatePartiesTable extends Migration
             $table->string('objective');
             $table->string('location');
             $table->integer('number_guests');
-            $table->integer('date');
+            $table->date('date');
             $table->timestamps();
             // $table->timestamps('deleted_at');
         });

@@ -15,7 +15,7 @@ class Party extends Model
         'date'
     ];
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
     public function friends()
     {
         return $this->hasMany('App\Models\Friend');

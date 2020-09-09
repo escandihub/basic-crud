@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Friend;
+use Dotenv\Validator;
 use Illuminate\Http\Request;
 
 class FriendController extends Controller
@@ -38,11 +39,19 @@ class FriendController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([]);
         $friend = Friend::create($request->all());
-        return response()->json([
-            'message'=>'created',
-            'friend'=> $friend
-        ]);
+        if(isset($friend)){
+            return response()->json([
+                'message'=>'created',
+                'friend'=> $friend
+            ]);
+        } else {
+            return response()->json([
+                'message'=>'No se creo el amigo',
+                'error'=>500
+            ]);
+        }
     }
 
     /**
