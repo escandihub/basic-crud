@@ -37,14 +37,7 @@ class PartyController extends Controller
      */
     public function store(Request $request)
     {
-        Party::create([
-            'name' => $request->input('name'),
-            'objective' => $request->input('objective'),
-            'location' => $request->input('location'),
-            'number_guests' => $request->input('number_guests'),
-            'date' => $request->input('date'),
-        ]);
-
+          $fiesta = Party::create($request->all());
         //some validation here
 
         return response()->json(['message' => "Se guardo, Correctamente"]);
@@ -81,14 +74,14 @@ class PartyController extends Controller
      */
     public function update(Request $request, Party $party)
     {
-
-       $party->update([
-            'name' => $request->input('name'),
-            'objective' => $request->input('objective')]);
+        $party->update($request->all());
+    //    $party->update([
+    //         'name' => $request->input('name'),
+    //         'objective' => $request->input('objective')]);
 
         // some validation here
         return response()->json([
-            'message' => "evento actualizado",
+            'menssage' => "evento actualizado",
             'party'=>$party
         ]);
     }

@@ -15,8 +15,9 @@ class ThingsController extends Controller
      */
     public function index()
     {
+        $cosas = Things::find(1)->belongToParty;
         return response()->json([
-            'data' =>  Things::all()
+            'data' => $cosas
         ]);
     }
 
@@ -58,7 +59,7 @@ class ThingsController extends Controller
     {
         // particular 
         return response()->json([
-            'data' => Things::find($id)
+            'data' => Things::find($id)->belongToParty
         ]);
     }
 
@@ -80,13 +81,14 @@ class ThingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Things $things)
     {
-        Things::where('id', $id)->update(['name' => $request->input('name'), 'amount' => $request->input('cantidad')]);
+        $things->update($request->all());
+        // Things::where('id', $id)->update(['name' => $request->input('name'), 'amount' => $request->input('cantidad')]);
 
         // some validation here
         return response()->json([
-            'message' => "se actualizo"
+            'menssage' => "se actualizo"
         ]);
     }
 

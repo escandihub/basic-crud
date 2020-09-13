@@ -17,6 +17,7 @@ class CreateThingsTable extends Migration
             $table->id();
             $table->string('name');
             $table->integer('amount');
+            $table->integer('party_id');
             $table->timestamps();
         });
     }

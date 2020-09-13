@@ -13,6 +13,6 @@ class Things extends Model
     use HasFactory;
     public function belongToParty()
     {
-        return $this->belongsTo('App\Models\Party');
+        return $this->belongsTo('App\Models\Party', 'party_id', 'id');
     }
 }

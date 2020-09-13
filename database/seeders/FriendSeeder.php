@@ -2,8 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Friend;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Str;
 
 class FriendSeeder extends Seeder
 {
@@ -14,6 +16,14 @@ class FriendSeeder extends Seeder
      */
     public function run()
     {
-        Friend::factory(10)->create();
+        for ($i = 0; $i < 10; $i++) {
+            DB::table('friends')->insert([
+                'name' => Str::random(10),
+                'email' => Str::random(10) . '@gmail.com',
+                'phone' => 9612954393,
+                'mood' => 'Ganas de Caldear'
+            ]);
+        }
+
     }
 }
