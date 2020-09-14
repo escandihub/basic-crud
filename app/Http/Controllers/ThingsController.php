@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Things;
+use App\Models\Party;
 
 class ThingsController extends Controller
 {
@@ -13,9 +14,11 @@ class ThingsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $cosas = Things::find(1)->belongToParty;
+        // this id come from url
+        $id = $request->input('idParty');
+        $cosas = Party::find($id)->things;
         return response()->json([
             'data' => $cosas
         ]);
@@ -39,13 +42,9 @@ class ThingsController extends Controller
      */
     public function store(Request $request)
     {
-        Things::create([
-            'name' => $request->input('name'),
-            'amount' => $request->input('cantidad')
-        ]);
+        $cosa = Things::create($request->all());
 
         //some validation here
-
         return response()->json(['message' => "Se guardo, Correctamente"]);
     }
 

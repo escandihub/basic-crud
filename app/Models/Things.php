@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Things extends Model
 {
     protected $fillable = [
-        'name', 'amount',
+        'name', 'amount', 'party_id',
     ];
     use HasFactory;
     public function belongToParty()
