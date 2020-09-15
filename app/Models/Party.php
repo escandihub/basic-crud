@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Party extends Model
 {
+    public $with = ['things'];
     protected $fillable = [
         'name',
         'objective',

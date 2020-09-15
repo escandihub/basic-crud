@@ -19,6 +19,7 @@ class CreateFriendsTable extends Migration
             $table->string('phone');
             $table->string('email');
             $table->string('mood');
+            $table->unsignedInteger('party_id')->nullable();
             $table->timestamps();
         });
     }
