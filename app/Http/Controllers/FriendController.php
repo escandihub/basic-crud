@@ -88,7 +88,7 @@ class FriendController extends Controller
         $friend->update($request->all());
         return response()->json([
             'message'=>'updated',
-            'friend'=> $friend
+            'friends'=> Friend::all()
         ]);
     }
 
