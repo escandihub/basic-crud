@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
 use App\Models\Things;
 use App\Models\Party;
 
@@ -31,7 +30,7 @@ class ThingsController extends Controller
      */
     public function create()
     {
-        //retunt a view 
+        //retunt a view
     }
 
     /**
@@ -56,7 +55,7 @@ class ThingsController extends Controller
      */
     public function show($id)
     {
-        // particular 
+        // particular
         return response()->json([
             'data' => Things::find($id)->belongToParty
         ]);

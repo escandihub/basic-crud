@@ -102,7 +102,8 @@ class FriendController extends Controller
     {
         $friend->delete();
         return response()->json([
-            'message'=>'deleted'
+            'message'=>'deleted',
+            'friends'=>Friend::all()
         ]);
     }
 }
